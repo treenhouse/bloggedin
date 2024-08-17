@@ -1,6 +1,9 @@
 import React from 'react';
+import React, { useState } from 'react';
 
 const CreatePost = () => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -13,10 +16,19 @@ const CreatePost = () => {
         </nav>
       </header>
       <main style={styles.main}>
-        <h2 style={styles.title}>Add Title/Caption...</h2>
-        <p style={styles.subtitle}>
-          Start blogging! The first paragraph you put will be in the preview, so think carefully...
-        </p>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Add Title/Caption..."
+          style={styles.titleInput}
+        />
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Start blogging! The first paragraph you put will be in the preview, so think carefully..."
+          style={styles.textArea}
+        />
         <div style={styles.topicContainer}>
           <h3>Choose Topics (1/5)</h3>
           <p style={styles.topics}>
