@@ -1,69 +1,74 @@
-div.stamp {
-    align-self: stretch;
-    color: #000;
-    text-align: right;
-    font-family: Inter;
-    font-size: 0.9375rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120.932%; /* 1.13375rem */
-}
-
-div.post-preview {
-    background: #D9D9D9;
-    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.25); 
+.container {
     display: flex;
-    width: 23.25rem;
-    height: 29.6875rem;
-    padding: 3.1875rem 1.875rem 2.0625rem 1.875rem;
     flex-direction: column;
-    justify-content: center;
+    height: 100vh;
+   }
+   .navbar {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.625rem;
-}
-
-div.preview-title {
-    width: 9.5625rem;
-    height: 13.6875rem;
-    color: #000;
-    font-family: "ITC Cheltenham Std";
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-div.topic {
-    color: #000;
-    font-family: Inter;
-    font-size: 1.25rem;
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+   }
+   .navbar h1 {
+    font-family: 'Old English Text MT',
+   serif;
+    margin: 0;
+   }
+   .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+   }
+   .nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+   }
+   .search {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+   }
+   .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+   }
+   .posts-grid {
+    display: grid;
+    grid-template-columns:
+   repeat(auto-fill, minmax(300px,
+   1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+   }
+   .post-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0,
+   0, 0.1);
+    position: relative;
+   }
+   .image-wrapper {
+    width: 100%;
+    height: 200px;
+    position: relative;
+   }
+   .post-meta {
     font-style: italic;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.topic-divider {
-    width: 7px; 
-    height: 7px; 
-    background: black; 
-    border-radius: 9999px;
-}
-
-.caption {
-    width: 19.5625rem;
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.comment {
-    color: #000;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
+    color: #777;
+   }
+   .post-category {
+    font-weight: bold;
+   }
+   .quote {
+    color: #cc0000;
+    font-weight: bold;
+    margin-top: 10px;
+   }
