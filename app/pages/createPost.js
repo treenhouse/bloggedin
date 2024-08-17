@@ -122,7 +122,7 @@ const styles = {
     backgroundColor: '#fff', // Ensure header background is also white
   },
   logo: {
-    fontFamily: "'Times New Roman', Times, serif",
+    fontFamily: "'Old English Text MT', serif", 
     fontSize: '28px',
   },
   nav: {
