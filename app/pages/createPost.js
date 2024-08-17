@@ -26,6 +26,13 @@ const CreatePost = () => {
     }
   };
 
+  const handlePost = () => {
+    // Handle post submission logic here
+    console.log("Post submitted:", { title, content, selectedTopics, photos });
+
+    // redirect to home page once posted.
+  };
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -88,6 +95,10 @@ const CreatePost = () => {
             ))}
           </div>
         </div>
+        {/* Post Button */}
+        <button onClick={handlePost} style={styles.postButton}>
+          Post
+        </button>
       </main>
     </div>
   );
@@ -96,6 +107,10 @@ const CreatePost = () => {
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
+    backgroundColor: '#fff', // Set the background color to white
+    padding: '20px',
+    borderRadius: '8px', // Optional: add rounded corners
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', // Optional: add a subtle shadow for depth
   },
   header: {
     display: 'flex',
@@ -103,6 +118,7 @@ const styles = {
     alignItems: 'center',
     padding: '10px 20px',
     borderBottom: '1px solid #ddd',
+    backgroundColor: '#fff', // Ensure header background is also white
   },
   logo: {
     fontFamily: "'Times New Roman', Times, serif",
@@ -121,20 +137,50 @@ const styles = {
   searchInput: {
     padding: '5px',
     marginLeft: '20px',
+    border: '1px solid #ccc', // Make the border thin
+    borderRadius: '4px',
+    outline: 'none', // Removes the default outline when focused
   },
   main: {
     padding: '20px',
     textAlign: 'center',
+    backgroundColor: '#fff', // Set the background color to white
   },
   title: {
     fontSize: '28px',
     fontWeight: 'bold',
     color: '#888',
   },
+  titleInput: {
+    fontSize: '64px',
+    fontFamily: "ITC Cheltenham Std",
+    fontWeight: 'bold',
+    color: '#888',
+    width: '100%',
+    padding: '10px 0', // Padding only top and bottom
+    marginBottom: '20px',
+    textAlign: 'left',
+    border: 'none', // Removes the border
+    borderBottom: '2px solid #888', // Adds only a bottom border for style
+    outline: 'none',
+  },
   subtitle: {
     fontSize: '16px',
     color: '#888',
     marginBottom: '20px',
+  },
+  textArea: {
+    width: '100%',
+    height: '100px',
+    fontSize: '16px',
+    fontFamily: "Inter",
+    color: '#888',
+    padding: '10px 0', // Padding only top and bottom
+    marginBottom: '20px',
+    border: 'none', // Removes the border
+    borderBottom: '2px solid #ccc', // Adds only a bottom border
+    outline: 'none',
+    resize: 'none', // Disable resizing
   },
   topicContainer: {
     marginBottom: '30px',
@@ -142,6 +188,7 @@ const styles = {
   topics: {
     color: '#888',
     marginBottom: '10px',
+    textAlign: 'left',
   },
   topicButton: {
     padding: '10px 15px',
@@ -185,6 +232,17 @@ const styles = {
     height: '80px',
     objectFit: 'cover',
     borderRadius: '4px',
+  },
+  postButton: {
+    marginTop: '20px',
+    padding: '10px 20px',
+    fontSize: '18px',
+    color: '#fff',
+    backgroundColor: '#007bff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
   },
 };
 
