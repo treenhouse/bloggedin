@@ -1,5 +1,6 @@
 import React from 'react';
 import React, { useState } from 'react';
+import './homepage.css';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -105,7 +106,7 @@ const CreatePost = () => {
   );
 };
 
-const styles = {
+/* const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     backgroundColor: '#fff', // Set the background color to white
@@ -245,6 +246,6 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
-};
+}; */
 
 export default CreatePost;

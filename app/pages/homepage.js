@@ -79,7 +79,7 @@ const HomePage = () => {
 }
 
 
-const styles = {
+/* const styles = {
     container: {
         fontFamily: 'Arial, sans-serif',
         backgroundColor: '#fff', // Set the background color to white
@@ -219,7 +219,7 @@ const styles = {
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
     },
-};
+}; */
         
 
 export default HomePage;
