@@ -1,0 +1,69 @@
+div.stamp {
+    align-self: stretch;
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.932%; /* 1.13375rem */
+}
+
+div.post-preview {
+    background: #D9D9D9;
+    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.25); 
+    display: flex;
+    width: 23.25rem;
+    height: 29.6875rem;
+    padding: 3.1875rem 1.875rem 2.0625rem 1.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+div.preview-title {
+    width: 9.5625rem;
+    height: 13.6875rem;
+    color: #000;
+    font-family: "ITC Cheltenham Std";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+div.topic {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.topic-divider {
+    width: 7px; 
+    height: 7px; 
+    background: black; 
+    border-radius: 9999px;
+}
+
+.caption {
+    width: 19.5625rem;
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.comment {
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
