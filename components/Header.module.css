@@ -1,4 +1,4 @@
-#logo {
+.logo {
     color: black; 
     font-size: 32px; 
     font-family: Old English Five; 
@@ -6,7 +6,7 @@
     word-wrap: break-word
 }
 
-header {
+.header {
     width: 100%; 
     height: 100%; 
     padding-left: 61px; 
@@ -21,4 +21,3 @@ header {
     gap: 10px; 
     display: inline-flex"
 }
-
