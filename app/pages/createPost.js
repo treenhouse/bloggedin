@@ -1,9 +1,22 @@
 import React from 'react';
 import React, { useState } from 'react';
-
 const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [selectedTopics, setSelectedTopics] = useState([]);
+
+  // list of topics
+  const topics = ['Computer Science', 'University', 'Melbourne', 'Bubble Tea', 'Fast Food'];
+
+  // updates the SelectedTopics array
+  const toggleTopic = (topic) => {
+    if (selectedTopics.includes(topic)) {
+      setSelectedTopics(selectedTopics.filter(t => t !== topic));
+    } else {
+      setSelectedTopics([...selectedTopics, topic]);
+    }
+  };
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -31,9 +44,20 @@ const CreatePost = () => {
         />
         <div style={styles.topicContainer}>
           <h3>Choose Topics (1/5)</h3>
-          <p style={styles.topics}>
-            Related Topic • <i>Related Topic</i> • <i>Related Topic</i> • <i>Related Topic</i> • <i>Related Topic</i>
-          </p>
+          <div style={styles.topics}>
+            {topics.map((topic) => (
+              <button
+                key={topic}
+                onClick={() => toggleTopic(topic)}
+                style={{
+                  ...styles.topicButton,
+                  fontWeight: selectedTopics.includes(topic) ? 'bold' : 'normal',
+                }}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
           <input type="text" placeholder="Search..." style={styles.searchInput} />
         </div>
         <div style={styles.photoContainer}>
@@ -96,6 +120,17 @@ const styles = {
   topics: {
     color: '#888',
     marginBottom: '10px',
+  },
+  topicButton: {
+    padding: '10px 15px',
+    fontSize: '16px',
+    color: '#000',
+    backgroundColor: '#f0f0f0',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+    margin: '5px', // Add margin to create space between buttons
   },
   photoContainer: {
     marginBottom: '30px',
