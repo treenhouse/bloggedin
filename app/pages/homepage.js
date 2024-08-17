@@ -10,17 +10,17 @@ const posts = [
  category: 'Alcohol • Programming',
  excerpt: 'What the title says.',
  quote: '"at least 2 shots" -@trnhse',
- image: '/coding_drunk_book_cover.png',
+ //image: '/coding_drunk_book_cover.png',
  },
  {
- title: 'best banh mi inmelbourne!',
+ title: 'best banh mi in melbourne!',
  author: 'nyugen',
  time: '9:00am 14/8/24',
  category: 'Vietnamese food •Melbourne',
  excerpt:
  'hey melbourne, i think i just found the BEST banh mi place in the city on the unimelb campus...',
  quote: '"so fire omg" - @trnhse',
- image: '/banhmi.png',
+ //image: '/banhmi.png',
  },
  {
  title: 'thought daughter?',
@@ -32,7 +32,7 @@ const posts = [
  },
  {
  title: 'do NOT go to this banh mi place',
- author: 'wamni',
+ author: 'wamMi',
  time: '5:03pm 15/8/24',
  category: 'food • Melbourne • influencer',
  trending: true,
