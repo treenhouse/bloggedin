@@ -4,6 +4,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [selectedTopics, setSelectedTopics] = useState([]);
+  const [photos, setPhotos] = useState([]); // State to store multiple uploaded photos
 
   // list of topics
   const topics = ['Computer Science', 'University', 'Melbourne', 'Bubble Tea', 'Fast Food'];
@@ -14,6 +15,14 @@ const CreatePost = () => {
       setSelectedTopics(selectedTopics.filter(t => t !== topic));
     } else {
       setSelectedTopics([...selectedTopics, topic]);
+    }
+  };
+
+  const handlePhotoUpload = (event) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const newPhotos = Array.from(event.target.files).slice(0, 5 - photos.length); // Limit to 5 photos
+      const photoURLs = newPhotos.map(file => URL.createObjectURL(file));
+      setPhotos([...photos, ...photoURLs]);
     }
   };
 
@@ -58,12 +67,25 @@ const CreatePost = () => {
               </button>
             ))}
           </div>
-          <input type="text" placeholder="Search..." style={styles.searchInput} />
+          <input type="text" placeholder="Search topics..." style={styles.searchInput} />
         </div>
         <div style={styles.photoContainer}>
-          <h3>Add Photos (0/5)</h3>
-          <div style={styles.addPhoto}>
+          <h3>Add Photos ({photos.length}/5)</h3>
+          <label style={styles.addPhoto}>
             <span style={styles.addPhotoIcon}>+</span>
+            <input
+              type="file"
+              style={styles.fileInput}
+              onChange={handlePhotoUpload}
+              multiple
+              accept="image/*"
+              disabled={photos.length >= 5} // Disable file input if 5 photos are already uploaded
+            />
+          </label>
+          <div style={styles.photoPreviews}>
+            {photos.map((photo, index) => (
+              <img key={index} src={photo} alt={`Uploaded ${index + 1}`} style={styles.photoPreview} />
+            ))}
           </div>
         </div>
       </main>
@@ -147,6 +169,22 @@ const styles = {
   addPhotoIcon: {
     fontSize: '24px',
     fontWeight: 'bold',
+  },
+  fileInput: {
+    display: 'none', // Hide the file input
+  },
+  photoPreviews: {
+    marginTop: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '10px',
+    flexWrap: 'wrap',
+  },
+  photoPreview: {
+    width: '80px',
+    height: '80px',
+    objectFit: 'cover',
+    borderRadius: '4px',
   },
 };
 
