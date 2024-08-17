@@ -66,10 +66,5 @@ const HomePage = () => {
  </div>
  );
 }
-// CSS (Can be placed in the same file or an external stylesheet)
-
-// export function getServerSideProps() {
-//     return { props: { styles } };
-// }
 
 export default HomePage;
