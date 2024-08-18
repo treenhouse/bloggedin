@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import './homepage.css';
+import styles from './homepage.module.css'; // Assuming you are using CSS Modules
 
 // Define TypeScript types for the post and props
 type Post = {
@@ -57,41 +57,98 @@ const posts: Post[] = [
 const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
   const formattedCategories = categories.join(' • ');
 
-  return <p>{formattedCategories}</p>;
+  return <p className={styles.categoryList}>{formattedCategories}</p>;
+};
+
+// Separate posts into two columns based on their index
+const PostTable = () => {
+    const leftColumnPosts = posts.filter((_, index) => index % 2 === 0);
+    const rightColumnPosts = posts.filter((_, index) => index % 2 !== 0);
+  
+    return (
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <tbody>
+          <tr>
+          <td style={{ verticalAlign: 'top', width: '15%' }}></td>
+            <td style={{ verticalAlign: 'top', width: '35%' }}>
+            <ul>
+                {leftColumnPosts.map((post, index) => (
+                  <li key={index} className={styles.postCard}>
+                  {post.image && (
+                      <div className={styles.imageWrapper}>
+                      <Image src={post.image} alt={post.title}/>
+                      </div>
+                  )}
+                  <h2 className={styles.title}>{post.title}</h2>
+                  <p className={styles.postMeta}> -- {post.author}, {post.time}</p>
+                  <div className={styles.postCategory}>
+                      <CategoryList categories={post.categories} />
+                  </div>
+                  <p className={styles.postExcerpt}>{post.excerpt}</p>
+                  {post.quote && <p className={styles.quote}>{post.quote}</p>}
+                  </li>
+                ))}
+              </ul>
+            </td>
+            <td style={{ verticalAlign: 'top', width: '35%' }}>
+              <ul>
+              {rightColumnPosts.map((post, index) => (
+                <li key={index} className={styles.postCard}>
+                {post.image && (
+                    <div className={styles.imageWrapper}>
+                    <Image src={post.image} alt={post.title} />
+                    </div>
+                )}
+                <h2 className={styles.title}>{post.title}</h2>
+                <p className={styles.postMeta}> -- {post.author}, {post.time}</p>
+                <div className={styles.postCategory}>
+                    <CategoryList categories={post.categories} />
+                </div>
+                <p className={styles.postExcerpt}>{post.excerpt}</p>
+                {post.quote && <p className={styles.quote}>{post.quote}</p>}
+                </li>
+            ))}
+              </ul>
+            </td>
+            <td style={{ verticalAlign: 'top', width: '15%' }}></td>
+          </tr>
+        </tbody>
+      </table>
+    );
 };
 
 // Define the HomePage component
 const HomePage: React.FC = () => {
   return (
-    <div className="container">
-      <header className="header">
-        <h1 className="logo">BloggedIn</h1>
-        <nav className="nav">
-          <a href="#" className="nav-link">Trending</a>
-          <a href="#" className="nav-link">Local</a>
-          <a href="#" className="nav-link">Following</a>
-          <input type="text" placeholder="Search..." className="search-input" />
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={styles.logo}>BloggedIn</h1>
+        <nav className={styles.nav}>
+            <a href="#" className={styles.navLink}>Trending</a>
+            <a href="#" className={styles.navLink}>Local</a>
+            <a href="#" className={styles.navLink}>Following</a>
+            <div className={styles.search}>
+                <input type="text" placeholder="Search..." className={styles.searchInput}/>
+                <Image
+                    className={styles.icon}
+                    src="/public/search.svg"  // Path to the image file
+                    alt="search icon"  // Alt text for accessibility
+                    width={500}  // Desired width of the image
+                    height={300}  // Desired height of the image
+                />
+            </div>
+            <Image
+                className={styles.icon}
+                src="/public/more.svg"  // Path to the image file
+                alt="more icon"  // Alt text for accessibility
+                width={500}  // Desired width of the image
+                height={300}  // Desired height of the image
+            />
         </nav>
       </header>
-      <div className="maincontent">
-        <div className="posts-grid">
-          {posts.map((post, index) => (
-            <div key={index} className="post-card">
-              {post.image && (
-                <div className="imagewrapper">
-                  <Image src={post.image} alt={post.title} layout="fill" />
-                </div>
-              )}
-              <h2>{post.title}</h2>
-              <p className="postmeta"> -- {post.author}, {post.time}</p>
-              <p className="postcategory">
-                <CategoryList categories={post.categories} />
-              </p>
-              <p className="postexcerpt">{post.excerpt}</p>
-              {post.quote && <p className="quote">{post.quote}</p>}
-            </div>
-          ))}
-        </div>
+
+      <div className={styles.mainContent}>
+        <PostTable/>
       </div>
     </div>
   );

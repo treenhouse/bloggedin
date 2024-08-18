@@ -1,4 +1,10 @@
 .container {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20.6875rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 14.1875rem;
     font-family: Arial, sans-serif;
     background-color: #fff; /* Set the background color to white */
     padding: 20px;
@@ -8,11 +14,16 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
+    width: 100%;
     border-bottom: 1px solid #ddd;
     background-color: #fff; /* Ensure header background is also white */
+    display: flex;
+    height: 3.6875rem;
+    justify-content: center;
+    align-items: center;
+    gap: 10.1875rem;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -20,9 +31,21 @@
     font-size: 28px;
 }
 
+.icon {
+    fill: #000;
+    width: 1.6875rem;
+    height: 1.52681rem;
+}
+
 .nav {
-    display: flex;
     align-items: center;
+    display: flex;
+    width: 100%;
+    height: 3.6875rem;
+    justify-content: center;
+    align-items: center;
+    gap: 10.1875rem;
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -30,14 +53,28 @@
     text-decoration: none;
     color: #000;
     font-size: 18px;
+    display: flex;
+    height: 1.25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6875rem;
 }
 
 .search-input {
+    width: 20.1875rem;
+    height: 1.8125rem;
     padding: 5px;
     margin-left: 20px;
     border: 1px solid #ccc; /* Make the border thin */
     border-radius: 4px;
     outline: none; /* Removes the default outline when focused */
+    background: #F6F6F6;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
 .main {
@@ -156,4 +193,79 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.postGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23.25rem, 1fr));
+    gap: 1.875rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1.875rem;
+    width: 90rem;
+    height: 64rem;
+}
+
+.postCard {
+    display: inline-flex;
+    width: 23.25rem;
+    height: 20.6875rem;
+    padding: 2.0625rem 1.875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    flex-shrink: 0;
+    background: #D9D9D9;
+    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    gap: 1.5625rem;
+    border: 40.6rem;
+}
+
+/* posts */
+.title {
+    color: #000;
+    font-family: "ITC Cheltenham Std";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+  
+.postMeta {
+    color: #000;
+    text-align: right;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.932%; 
+}
+
+.postCategory {
+    color: #000;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.postExcerpt {
+    color: #000;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.quote {
+    font-size: 18px;
+    font-style: italic;
+    color: #333;
+}
+
+.image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
