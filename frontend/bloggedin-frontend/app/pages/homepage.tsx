@@ -57,7 +57,7 @@ const posts: Post[] = [
 const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
   const formattedCategories = categories.join(' • ');
 
-  return <div>{formattedCategories}</div>;
+  return <p>{formattedCategories}</p>;
 };
 
 // Define the HomePage component
